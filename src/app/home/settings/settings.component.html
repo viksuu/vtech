@@ -1,0 +1,34 @@
+<nav class="navbar navbar-light bg-light ">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@Search</span>
+        </div>
+        <input type="text" #search class="form-control" (document:click)="print($event)" placeholder="region name" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+    </div>
+
+  </div>
+
+</nav>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Region Shortname</th>
+      <th scope="col">Region Name</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let region of regions">
+      <th>{{region.id}}</th>
+      <th>{{region.regionShortName}}</th>
+      <td>{{region.regionName}}</td>
+
+    </tr>
+
+  </tbody>
+</table>

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // json-server --watch db.json --port 5200
+  baseUrl: 'http://localhost:5200',
 };
 
 /*

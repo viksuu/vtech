@@ -1,0 +1,143 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Edit Profile</h4>
+            <p class="card-category">Complete your profile</p>
+          </div>
+          <div class="card-body">
+            <!-- FORM  -->
+            <form [formGroup]='f' (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <div class="col-xs-6">
+                  <label for="verify">
+                    <h4>Username</h4>
+                  </label>
+                  <input type="text" formControlName='username' class="form-control" id="one" placeholder="something"
+                    title="something">
+                  <small class="text-danger" *ngIf="!f.get('username').valid && f.get('username').touched ">Name is
+                    required
+                    (minimum
+                    3 characters).</small>
+                  <!-- <small class="text-danger" [hidden]="f.controls.username.valid || (f.controls.username.pristine && !submitted)">
+                            Name is required (minimum 3 characters).
+                            </small> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-xs-6">
+                  <label for="verify">
+                    <h4>Email</h4>
+                  </label>
+                  <input type="text" formControlName="email" class="form-control" id="verify" placeholder="email"
+                    title="verify your password.">
+                  <span class="text-danger" *ngIf="!f.get('email').valid && f.get('email').touched ">Please enter a
+                    valid
+                    email</span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-xs-6">
+                  <label for="gender">
+                    <h4>Gender</h4>
+                  </label>
+                  <div class="" *ngFor="let g of gender">
+                    <input type="radio" formControlName="gender" [value]="g"> {{g}}
+                  </div>
+                </div>
+              </div>
+              <div formGroupName='passData'>
+                <div class="form-group row">
+                  <div class="col-xs-6">
+                    <label for="verify">
+                      <h4>Password</h4>
+                    </label>
+                    <input type="text" formControlName='password' class="form-control" id="one" placeholder="password"
+                      title="something">
+                    <span class="text-danger"
+                      *ngIf="!f.get('passData.password').valid && f.get('password').touched ">Please
+                      enter
+                      a valid username</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-6">
+                    <label for="verify">
+                      <h4>Confirm Password</h4>
+                    </label>
+                    <input type="text" formControlName='confirm' class="form-control" id="two"
+                      placeholder="confirm Password" title="something">
+                    <span class="text-danger"
+                      *ngIf="!f.get('passData.confirm').valid && f.get('confirm').touched ">Please
+                      enter a
+                      valid username</span>
+                  </div>
+                </div>
+              </div>
+              <!-- /fromGroupName password -->
+              <div formGroupName='skills'>
+                <div class="form-group row">
+                  <div class="col-xs-6">
+                    <label for="verify">
+                      <h4>Skills</h4>
+                    </label><br>
+                    <input type="checkbox" formControlName='java'> Java
+                    <ng-container *ngIf="f.controls.skills.controls.java.value">
+                      <div class="" *ngFor="let jv of [7,8,9]">
+                        <input type="radio" formControlName="java-version" [value]="jv">{{jv}}
+                      </div>
+                    </ng-container>
+                    <br>
+                    <input type="checkbox" class="" formControlName='php'> PHP <br>
+                    <input type="checkbox" formControlName='angular'> Angular<br>
+                    <input type="checkbox" formControlName='others'> Others<br>
+                    <ng-container *ngIf="f.controls.skills.controls.others.value">
+                      <input type="textarea" class="form-control" formControlName='other-skill'
+                        placeholder="mention in comma seperated">
+                    </ng-container>
+                  </div>
+                </div>
+              </div><!-- /fromGroupName skills -->
+
+              <!-- formArray -->
+              <div formArrayName='hobbies'>
+                <div class="form-group row">
+                  <div class="col-xs-6">
+                    <label for="verify">
+                      <h4>Add Hobbies</h4>
+                    </label>
+                    <button type="button" (click)="onAddHobby()" class="btn btn-warning" id="three">Add Hobbies</button>
+                    <div *ngFor="let hob of f.get('hobbies').controls; let i= index ">
+                      <input class="form-control" [formControlName]="i">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="button" class="btn btn-danger" (click)="f.reset()">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-profile" style="margin-top: 40px;">
+          <div class="card-avatar">
+            <a href="javascript:void(0)">
+              <img class="img" src="assets/faces/marc.jpeg" />
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Vikash Singh Rudra</h4>
+            <p class="card-description">
+              Don't be scared of the truth because we need to restart the human foundation in truth.
+            </p>
+            <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

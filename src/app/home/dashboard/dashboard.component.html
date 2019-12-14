@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          LoggedIn User
+        </div>
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title">Welcome, {{user?.username}}</h5>
+          <p class="card-text"> mood : {{inMind}}
+          </p>
+        </div>
+        <ul  onlyNumbers class="list-group list-group-flush">
+          <li class="list-group-item"> id : {{user?.id}}</li>
+          <li class="list-group-item">username : {{user?.username}}</li>
+          <li class="list-group-item">fullname : {{user?.fullname}}</li>
+          <li class="list-group-item">secret : <input type="text" class="form-control"  onlyNumber [(ngModel)]="childData"/></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card" style="width: 40rem;">
+        <div class="card-header">
+         Directives...
+        </div>
+        <ul  onlyNumbers class="list-group list-group-flush">
+          <li class="list-group-item"> only numbers :<input type="text" class="form-control"  onlyNumber [(ngModel)]="childData"/></li>
+          <li class="list-group-item">username : <input type="text" class="form-control"  onlyNumber [(ngModel)]="childData"/></li>
+          <li class="list-group-item">fullname : <input type="text" class="form-control"  onlyNumber [(ngModel)]="childData"/> </li>
+          <li class="list-group-item">secret : <input type="text" class="form-control"  onlyNumber [(ngModel)]="childData"/></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+
+      <div class="float-right">
+        <!--A step 6 -->
+        <today-staus (shareEvent)="inMind=$event"  [childData]="childData"></today-staus>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

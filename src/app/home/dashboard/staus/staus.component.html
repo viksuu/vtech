@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title" zoom >Today, what is there in your mind !!!!</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Lets share</h6>
+          <textarea class="card-text form-control" [(ngModel)]="inMind"></textarea>
+          <!--A step 4 -->
+          <button (click)="share()"  class="card-link btn btn-success outline btn-sm" type="button">share</button>
+        </div>
+
+        <div>
+            <label>Todays secret is : {{childData}}</label>
+        </div>
+      </div>
